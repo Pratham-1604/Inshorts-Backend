@@ -19,7 +19,7 @@ const verifyApiKey = async (req, res, next) => {
         .json({ status: "Invalid API key or not an admin" });
     }
 
-    req.user = user; // Attach user info to request object
+    req.user = user;
     next();
   } catch (err) {
     return res.status(500).json({

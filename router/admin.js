@@ -1,21 +1,14 @@
+const { createAdminUser, getApiKey } = require("../controllers/auth");
 const {
   addNote,
-  getShortsFeed,
-  upvoteNote,
-  removeUpvoteNote,
-  downvoteNote,
-  removeDownvoteNote,
-  getFilteredShorts,
+  verifyApiKey,
 } = require("../controllers/notes");
 
 const router = require("express").Router();
 
-router.post("/addNote", addNote);
-router.get("/shorts/feed", getShortsFeed);
-router.get("/shorts/feed/upvote/:id", upvoteNote);
-router.get("/shorts/feed/removeUpvote/:id", removeUpvoteNote);
-router.get("/shorts/feed/downvote/:id", downvoteNote);
-router.get("/shorts/feed/removeDownvote/:id", removeDownvoteNote);
-router.get("/shorts/filter", getFilteredShorts);
+router.post("/createAdmin", createAdminUser);
+router.post("/get-api-key", getApiKey);
+router.post("/addNote", verifyApiKey, addNote);
+
 
 module.exports = router;
