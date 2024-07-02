@@ -1,3 +1,5 @@
+## INSHORTS-API
+
 POST /api/auth/signup - Create a new User
 
 POST /api/admin/createAdmin - Create a new Admin User
